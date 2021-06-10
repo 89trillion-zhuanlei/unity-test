@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class StartUI : MonoBehaviour
 {
-    public GameObject game;
-    public Button startBtn;
+    [SerializeField] private GameObject game;
+    [SerializeField] private Button startBtn;
 
     public void ClickStart()
     {

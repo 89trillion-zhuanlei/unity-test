@@ -6,7 +6,7 @@ using System.IO;
 
 public class JsonShow : MonoBehaviour
 {
-    public ShopItem ShopItem;
+    [SerializeField]private ShopItem ShopItem;
 
     private int jsonCount = 0;
     // Start is called before the first frame update
