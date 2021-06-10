@@ -6,7 +6,7 @@ using System.IO;
 
 public class JsonShow : MonoBehaviour
 {
-    public GameObject item;
+    public ShopItem ShopItem;
 
     private int jsonCount = 0;
     // Start is called before the first frame update
@@ -30,20 +30,19 @@ public class JsonShow : MonoBehaviour
         jsonCount = json[0].Count;
         for (int i = 0; i < jsonCount; i++)
         {
-            GameObject itemClone = Instantiate(item, transform);
-            var go = itemClone.GetComponent<ShopItem>();
-            go.type = json[0][i]["type"];
-            go.subType = json[0][i]["subType"];
-            go.isPurchased = json[0][i]["isPurchased"];
-            go.costGold = json[0][i]["costGold"];
-            go.RefreshUI();
+            ShopItem shopitem = Instantiate(ShopItem, transform);
+            shopitem.type = json[0][i]["type"];
+            shopitem.subType = json[0][i]["subType"];
+            shopitem.isPurchased = json[0][i]["isPurchased"];
+            shopitem.costGold = json[0][i]["costGold"];
+            shopitem.RefreshUI();
         }
         if (json[0].Count % 3 != 0)
         {
             int needNum = 3 - (json[0].Count % 3);
             for (int i = 0; i < needNum; i++)
             {
-                Instantiate(item, transform);
+                Instantiate(ShopItem, transform);
             }
         }
     }
