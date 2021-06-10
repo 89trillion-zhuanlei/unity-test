@@ -10,10 +10,10 @@ public class ShopItem : MonoBehaviour
     public int subType;
     public int costGold;
     public int isPurchased = -1;
-    public Text tagName; //卡牌名字
-    public Image showImage; //卡牌展示图片
-    public GameObject[] state; //状态1：未购买；状态2：已购买；
-    public GameObject[] isCost; //状态1：免费；状态2：付费；
+    [SerializeField]private Text tagName; //卡牌名字
+    [SerializeField]private Image showImage; //卡牌展示图片
+    [SerializeField]private GameObject[] state; //状态1：未购买；状态2：已购买；
+    [SerializeField]private GameObject[] isCost; //状态1：免费；状态2：付费；
 
     public void RefreshUI()
     {
