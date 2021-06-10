@@ -58,9 +58,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Item.cs" />
      <Compile Include="Assets\Scripts\JsonShow.cs" />
-     <Compile Include="Assets\Scripts\Menu.cs" />
+     <Compile Include="Assets\Scripts\ShopItem.cs" />
+     <Compile Include="Assets\Scripts\StartUI.cs" />
      <Compile Include="Assets\SimpleJSON-master\SimpleJSON.cs" />
      <Compile Include="Assets\SimpleJSON-master\SimpleJSONBinary.cs" />
      <Compile Include="Assets\SimpleJSON-master\SimpleJSONUnity.cs" />
@@ -90,6 +90,9 @@
  </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>/Users/zhuanlei/UnityDemo/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Sprite.Editor">
+ <HintPath>/Users/zhuanlei/UnityDemo/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
