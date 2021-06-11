@@ -21,8 +21,8 @@ public class CreateShopItem : MonoBehaviour
         foreach (var dataList in shopItemDataList)
         {
             ShopItem shopitem = Instantiate(ShopItem, transform);
-            shopitem.SetData(dataList);
-            shopitem.RefreshUI();
+            //shopitem.SetData(dataList);
+            shopitem.RefreshUI(dataList);
         }
         if (shopItemDataList.Count % 3 != 0)
         {

@@ -6,53 +6,37 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-    private int type;
-    private int subType;
-    private int costGold;
-    private int isPurchased = -1;
     [SerializeField]private Text tagName; //卡牌名字
     [SerializeField]private Image showImage; //卡牌展示图片
     [SerializeField]private GameObject[] state; //状态1：未购买；状态2：已购买；
     [SerializeField]private GameObject[] isCost; //状态1：免费；状态2：付费；
-
-    /// <summary>
-    /// 为ShopItem赋值
-    /// </summary>
-    /// <param name="type"></param>
-    /// <param name="subType"></param>
-    /// <param name="costGold"></param>
-    /// <param name="isPurchased"></param>
-    public void SetData(ShopItemData shopItemData)
-    {
-        this.type = shopItemData.type;
-        this.subType = shopItemData.subType;
-        this.costGold = shopItemData.costGold;
-        this.isPurchased = shopItemData.isPurchased;
-    }
+    private ShopItemData _shopItemData;
+    
     /// <summary>
     /// 刷新ShopUI界面
     /// </summary>
-    public void RefreshUI()
+    public void RefreshUI(ShopItemData shopItemData)
     {
-        ChangeState(isPurchased);
-        if (subType != 0)
+        this._shopItemData = shopItemData;
+        ChangeState(shopItemData.isPurchased);
+        if (shopItemData.subType != 0)
         {
-            showImage.sprite = Resources.Load<Sprite>("cards/" + subType);
+            showImage.sprite = Resources.Load<Sprite>("cards/" + shopItemData.subType);
         }
 
-        if (type == 2)
+        if (shopItemData.type == 2)
         {
             tagName.gameObject.SetActive(true);
             tagName.text = "Coins";
             showImage.sprite = Resources.Load<Sprite>("coin_1");
             isCost[0].SetActive(true);
         }
-        else if (type == 3)
+        else if (shopItemData.type == 3)
         {
             tagName.gameObject.SetActive(true);
             tagName.text = "Viking Watttior";
             isCost[1].SetActive(true);
-            isCost[1].GetComponentInChildren<Text>().text = costGold.ToString();
+            isCost[1].GetComponentInChildren<Text>().text = shopItemData.costGold.ToString();
         }
     }
 
@@ -79,7 +63,7 @@ public class ShopItem : MonoBehaviour
     /// </summary>
     public void CilckBuy()
     {
-        isPurchased = 1;
-        RefreshUI();
+        this._shopItemData.isPurchased = 1;
+        RefreshUI(this._shopItemData);
     }
 }
