@@ -16,20 +16,17 @@ public class CreateShopItem : MonoBehaviour
     /// 根据Json解析数据的创建ShopItem
     /// </summary>
     /// <param name="json"></param>
-    private void CreateItem(JSONNode json)
+    private void CreateItem(List<ShopItemData> shopItemDataList)
     {
-        int jsonCount  = json[0].Count;
-        for (int i = 0; i < jsonCount; i++)
+        foreach (var dataList in shopItemDataList)
         {
             ShopItem shopitem = Instantiate(ShopItem, transform);
-            var shopData = json[0][i];
-            shopitem.SetData(shopData["type"],shopData["subType"],
-                shopData["costGold"],shopData["isPurchased"]);
+            shopitem.SetData(dataList);
             shopitem.RefreshUI();
         }
-        if (json[0].Count % 3 != 0)
+        if (shopItemDataList.Count % 3 != 0)
         {
-            int needNum = 3 - (json[0].Count % 3);
+            int needNum = 3 - (shopItemDataList.Count % 3);
             for (int i = 0; i < needNum; i++)
             {
                 Instantiate(ShopItem, transform);
