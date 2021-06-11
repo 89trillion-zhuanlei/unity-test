@@ -15,6 +15,23 @@ public class ShopItem : MonoBehaviour
     [SerializeField]private GameObject[] state; //状态1：未购买；状态2：已购买；
     [SerializeField]private GameObject[] isCost; //状态1：免费；状态2：付费；
 
+    /// <summary>
+    /// 为ShopItem赋值
+    /// </summary>
+    /// <param name="type"></param>
+    /// <param name="subType"></param>
+    /// <param name="costGold"></param>
+    /// <param name="isPurchased"></param>
+    public void SetData(int type,int subType,int costGold,int isPurchased)
+    {
+        this.type = type;
+        this.subType = subType;
+        this.costGold = costGold;
+        this.isPurchased = isPurchased;
+    }
+    /// <summary>
+    /// 刷新ShopUI界面
+    /// </summary>
     public void RefreshUI()
     {
         ChangeState(isPurchased);
@@ -39,6 +56,10 @@ public class ShopItem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 根据isPurchased判断是否购买，修改购买和未购买状态
+    /// </summary>
+    /// <param name="isPurchased"></param>
     private void ChangeState(int isPurchased)
     {
         if (isPurchased != -1)
@@ -53,6 +74,9 @@ public class ShopItem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 点击购买按钮事件
+    /// </summary>
     public void CilckBuy()
     {
         isPurchased = 1;
