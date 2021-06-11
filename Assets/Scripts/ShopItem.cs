@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
-    public int type;
-    public int subType;
-    public int costGold;
-    public int isPurchased = -1;
+    private int type;
+    private int subType;
+    private int costGold;
+    private int isPurchased = -1;
     [SerializeField]private Text tagName; //卡牌名字
     [SerializeField]private Image showImage; //卡牌展示图片
     [SerializeField]private GameObject[] state; //状态1：未购买；状态2：已购买；
@@ -22,12 +22,12 @@ public class ShopItem : MonoBehaviour
     /// <param name="subType"></param>
     /// <param name="costGold"></param>
     /// <param name="isPurchased"></param>
-    public void SetData(int type,int subType,int costGold,int isPurchased)
+    public void SetData(ShopItemData shopItemData)
     {
-        this.type = type;
-        this.subType = subType;
-        this.costGold = costGold;
-        this.isPurchased = isPurchased;
+        this.type = shopItemData.type;
+        this.subType = shopItemData.subType;
+        this.costGold = shopItemData.costGold;
+        this.isPurchased = shopItemData.isPurchased;
     }
     /// <summary>
     /// 刷新ShopUI界面
