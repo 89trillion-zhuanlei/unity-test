@@ -58,9 +58,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\JsonShow.cs" />
+     <Compile Include="Assets\Scripts\CreateShopItem.cs" />
+     <Compile Include="Assets\Scripts\JsonShopData.cs" />
      <Compile Include="Assets\Scripts\ShopItem.cs" />
-     <Compile Include="Assets\Scripts\StartUI.cs" />
+     <Compile Include="Assets\Scripts\StartPanel.cs" />
      <Compile Include="Assets\SimpleJSON-master\SimpleJSON.cs" />
      <Compile Include="Assets\SimpleJSON-master\SimpleJSONBinary.cs" />
      <Compile Include="Assets\SimpleJSON-master\SimpleJSONUnity.cs" />
