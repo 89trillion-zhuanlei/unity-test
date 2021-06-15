@@ -10,14 +10,14 @@ public class ShopItem : MonoBehaviour
     [SerializeField]private Image showImage; //卡牌展示图片
     [SerializeField]private GameObject[] state; //状态1：未购买；状态2：已购买；
     [SerializeField]private GameObject[] isCost; //状态1：免费；状态2：付费；
-    private ShopItemData _shopItemData;
+    private ShopItemData shopItemData;
     
     /// <summary>
     /// 刷新ShopUI界面
     /// </summary>
     public void RefreshUI(ShopItemData shopItemData)
     {
-        this._shopItemData = shopItemData;
+        this.shopItemData = shopItemData;
         ChangeState(shopItemData.isPurchased);
         if (shopItemData.subType != 0)
         {
@@ -63,7 +63,7 @@ public class ShopItem : MonoBehaviour
     /// </summary>
     public void CilckBuy()
     {
-        this._shopItemData.isPurchased = 1;
-        RefreshUI(this._shopItemData);
+        this.shopItemData.isPurchased = 1;
+        RefreshUI(this.shopItemData);
     }
 }
